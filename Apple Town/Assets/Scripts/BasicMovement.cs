@@ -5,7 +5,7 @@ using UnityEngine;
 public class BasicMovement : MonoBehaviour
 {
 
-    float timeConstant = 3;
+    float timeConstant = 2;
     public Animator animator;
     public Rigidbody2D rb;
     public Vector3 movement;
@@ -17,9 +17,7 @@ public class BasicMovement : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Magnitude", movement.magnitude);
-
         rb.velocity = new Vector2(movement.x * timeConstant, movement.y * timeConstant);
-
     }
 
     // Update is called once per frame

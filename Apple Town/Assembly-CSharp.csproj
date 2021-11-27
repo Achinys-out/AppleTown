@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\BasicMovement.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Interactable.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
