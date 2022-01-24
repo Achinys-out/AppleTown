@@ -8,13 +8,8 @@ public class Interactable : MonoBehaviour
 
     public string text = "Press <E> to interact.";
     public bool inRange = false;
-
-    public KeyCode interactKey; // E key
+    public KeyCode interactKey;
     public UnityEvent interactAction;
-
-    public bool interactionStarted = false;
-    public KeyCode nextSentenceKey; //space key
-    public UnityEvent interactAction2;
 
     GameObject[] bubbles;
     SpriteRenderer spBubble;
@@ -23,12 +18,7 @@ public class Interactable : MonoBehaviour
     {
         if (inRange && Input.GetKeyDown(interactKey))
         {
-            interactionStarted = !interactionStarted;
             interactAction.Invoke();
-        }
-        if (interactionStarted && Input.GetKeyDown(nextSentenceKey))
-        {
-            interactAction2.Invoke();
         }
     }
 
@@ -42,7 +32,7 @@ public class Interactable : MonoBehaviour
             bubbles = GameObject.FindGameObjectsWithTag("PopUpText");
 
             Vector2 newPosition = this.transform.position;
-            bubbles[0].transform.position = new Vector2(newPosition.x, newPosition.y + 0.2f);
+            bubbles[0].transform.position = new Vector2(newPosition.x, newPosition.y + 0.35f);
 
             spBubble = bubbles[0].GetComponent<SpriteRenderer>();
             spBubble.enabled = true;
@@ -59,5 +49,4 @@ public class Interactable : MonoBehaviour
             spBubble.enabled = false;
         }
     }
-
 }

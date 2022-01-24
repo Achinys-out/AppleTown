@@ -5,7 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - PopUpText
-  - canvas
+  - Enemy
+  - Background
+  - Greens
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -40,9 +43,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Ground
+    uniqueID: 2402378261
+    locked: 0
+  - name: SmallGreens
+    uniqueID: 1134051279
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Objects
+  - name: Background
     uniqueID: 3749367151
+    locked: 0
+  - name: Overlay
+    uniqueID: 1273646481
     locked: 0
