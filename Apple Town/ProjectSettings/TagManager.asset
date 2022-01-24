@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - PopUpText
+  - canvas
   layers:
   - Default
   - TransparentFX
