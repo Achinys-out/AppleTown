@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22aabad6385cad343a42b4471260bd80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
   text: SPACE to interact
   inRange: 0
   interactKey: 0
