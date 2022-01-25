@@ -1,20 +1,17 @@
-// based on https://www.youtube.com/watch?v=_nRzoTzeyxU
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DialogManager : MonoBehaviour
 {
-    public Text NPCName;
-    public Text DialogText;
+    public TextMeshProUGUI NPCName;
+    public TextMeshProUGUI DialogText;
     public GameObject canvas;
 
     private Queue<string> sentences;
 
-    GameObject[] bubbles;
-    SpriteRenderer spBubble;
 
     // Start is called before the first frame update
     void Start()
@@ -25,16 +22,18 @@ public class DialogManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void StartDialog(Dialog dialog) {
+    public void StartDialog(Dialog dialog)
+    {
         Debug.Log("Conversation started");
 
         sentences.Clear();
         NPCName.text = dialog.NPCName;
 
-        foreach (string sentence in dialog.sentences) {
+        foreach (string sentence in dialog.sentences)
+        {
             sentences.Enqueue(sentence);
         }
 
@@ -43,8 +42,10 @@ public class DialogManager : MonoBehaviour
         DisplayNextSentence();
     }
 
-    public void DisplayNextSentence() {
-        if (sentences.Count == 0) {
+    public void DisplayNextSentence()
+    {
+        if (sentences.Count == 0)
+        {
             EndDialog();
             return;
         }
@@ -53,7 +54,8 @@ public class DialogManager : MonoBehaviour
         DialogText.text = sentence;
     }
 
-    void EndDialog() {
+    void EndDialog()
+    {
         canvas.SetActive(false);
         Debug.Log("Conversation ended");
     }

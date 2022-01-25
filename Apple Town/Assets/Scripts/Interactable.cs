@@ -23,7 +23,7 @@ public class Interactable : MonoBehaviour
     {
         if (inRange && Input.GetKeyDown(interactKey))
         {
-            interactionStarted = !interactionStarted;
+            interactionStarted = true;
             interactAction.Invoke();
         }
         if (interactionStarted && Input.GetKeyDown(nextSentenceKey))
