@@ -1,13 +1,14 @@
+// based on https://www.youtube.com/watch?v=_nRzoTzeyxU
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class DialogManager : MonoBehaviour
 {
-    public TextMeshProUGUI NPCName;
-    public TextMeshProUGUI DialogText;
+    public Text NPCName;
+    public Text DialogText;
     public GameObject canvas;
 
     private Queue<string> sentences;
