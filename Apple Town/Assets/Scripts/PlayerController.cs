@@ -92,6 +92,7 @@ public class PlayerController : MonoBehaviour
     {
         if (health < 6) {
             health += amount;
+            if (health > 6) health = 6;
             healthStatus.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Health/" + health + "_HEALTH");
         }
         
