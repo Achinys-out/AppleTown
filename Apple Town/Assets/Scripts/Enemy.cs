@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public float radius; // also used as stopDistance
     public int speed;
     public bool range;
+    public int damage;
     public float retreatDistance;
     public float startTimeShots;
     public Vector2 movement;
@@ -66,17 +67,10 @@ public class Enemy : MonoBehaviour
                 else timeBetweenShots -= Time.deltaTime;
             }
             
-
-
             if (tmpDistance < radius) Animate();
 
         }
-       
-
-       
-
-
-        
+      
     }
 
     private void Animate()

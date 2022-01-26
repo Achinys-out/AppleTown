@@ -10,11 +10,12 @@ public class PlayerController : MonoBehaviour
     [Space]
     [Header("Character attributes:")]
     public Vector2 movement;
-    private float speed = 7.0f;
+    public float speed = 7.0f;
     private int health = 6;
     public float movementSpeed;
     private float lastDamagedTime;
     private float invincibilityLength = 0;
+    private Vector2 initPosition;
     [Space]
     [Header("References:")]
     public Rigidbody2D rb;
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        initPosition = transform.position;
         lastDamagedTime = Time.time;
         healthStatus.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Health/" + health + "_HEALTH");
     }
@@ -32,7 +34,6 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Magnitude", movement.magnitude);
         movementSpeed = Mathf.Clamp(movement.magnitude, 0.0f, 0.0f);
-        movement.Normalize();
         rb.velocity = new Vector2(movement.x * speed, movement.y * speed);
     }
 
@@ -63,9 +64,12 @@ public class PlayerController : MonoBehaviour
                 healthStatus.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Health/" + health + "_HEALTH");
             }
         }
-        else { 
+        else {
 
             // player is dead, do respawn
+            transform.position = initPosition;
+            health = 6;
+            healthStatus.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Health/" + health + "_HEALTH");
 
         }
         

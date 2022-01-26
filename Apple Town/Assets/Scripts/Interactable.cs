@@ -8,17 +8,27 @@ public class Interactable : MonoBehaviour
 
     public string text = "Press <E> to interact.";
     public bool inRange = false;
-    public KeyCode interactKey;
+
+    public KeyCode interactKey; // E key
     public UnityEvent interactAction;
+
+    public bool interactionStarted = false;
+    public KeyCode nextSentenceKey; //space key
+    public UnityEvent interactAction2;
 
     GameObject[] bubbles;
     SpriteRenderer spBubble;
 
     private void Update()
     {
-        if (inRange && Input.GetKeyDown(interactKey))
+        if (inRange && Input.GetKeyDown(interactKey) && !interactionStarted)
         {
+            interactionStarted = true;
             interactAction.Invoke();
+        }
+        else if (interactionStarted && Input.GetKeyDown(nextSentenceKey))
+        {
+            interactAction2.Invoke();
         }
     }
 
@@ -44,9 +54,11 @@ public class Interactable : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             inRange = false;
+            interactionStarted = false;
             Debug.Log("Player left the range of interactable object.");
 
             spBubble.enabled = false;
         }
     }
+
 }

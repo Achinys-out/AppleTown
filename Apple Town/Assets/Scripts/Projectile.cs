@@ -37,9 +37,8 @@ public class Projectile : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
         if(rotating) transform.Rotate(0, 0, 360 * Time.deltaTime);
         if (transform.position.x == target.x && transform.position.y == target.y) {
-            //player.healthDown(1);
             rotating = false;
-            Destroy(gameObject, 2.0f);
+            Destroy(gameObject, 1f);
         }
         
     }

@@ -2,18 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class DialogManager : MonoBehaviour
 {
-    public TextMeshProUGUI NPCName;
-    public TextMeshProUGUI DialogText;
+    public Text NPCName;
+    public Text DialogText;
     public GameObject canvas;
+    private PlayerController player;
+    private float playerSpeed;
+    
 
     private Queue<string> sentences;
 
     GameObject[] bubbles;
     SpriteRenderer spBubble;
+
+    private void Awake()
+    {
+        player = PlayerManager.instance.player.GetComponent<PlayerController>();
+        playerSpeed = player.speed;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -21,14 +29,9 @@ public class DialogManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void StartDialog(Dialog dialog) {
         Debug.Log("Conversation started");
+        player.speed = 0;
 
         sentences.Clear();
         NPCName.text = dialog.NPCName;
@@ -43,6 +46,7 @@ public class DialogManager : MonoBehaviour
     }
 
     public void DisplayNextSentence() {
+        Debug.Log("SENTENCES COUNT: " + sentences.Count);
         if (sentences.Count == 0) {
             EndDialog();
             return;
@@ -54,6 +58,7 @@ public class DialogManager : MonoBehaviour
 
     void EndDialog() {
         canvas.SetActive(false);
+        player.speed = playerSpeed;
         Debug.Log("Conversation ended");
     }
 }
