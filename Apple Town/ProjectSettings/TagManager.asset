@@ -9,6 +9,8 @@ TagManager:
   - Background
   - Greens
   - Projectile
+  - FullAppleHealth
+  - HalfAppleHealth
   layers:
   - Default
   - TransparentFX

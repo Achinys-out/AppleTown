@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [Header("Character attributes:")]
     public Vector2 movement;
     public float speed = 7.0f;
-    private int health = 6;
+    private int health = 2;
     public float movementSpeed;
     private float lastDamagedTime;
     private float invincibilityLength = 0;
@@ -45,9 +45,23 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Projectile") {
-            healthDown();
+        switch (other.gameObject.tag) {
+            case "Projectile": {
+                    healthDown(); 
+                    break;
+                } 
+            case "FullAppleHealth": case "HalfAppleHealth": {
+                    if (health < 6) {
+                        Destroy(other.gameObject);
+                        if (other.gameObject.tag == "HalfAppleHealth") healthUp(1); 
+                        else healthUp(2);
+                    }
+                    break;
+                } 
+            default: break;
         }
+
+
     }
 
     public void healthDown() {
@@ -74,10 +88,10 @@ public class PlayerController : MonoBehaviour
         }
         
     }
-    public void healthUp()
+    public void healthUp(int amount)
     {
         if (health < 6) {
-            health += 1;
+            health += amount;
             healthStatus.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Health/" + health + "_HEALTH");
         }
         
