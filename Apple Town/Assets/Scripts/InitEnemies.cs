@@ -18,10 +18,12 @@ public class InitEnemies : MonoBehaviour
         enemiesCoordinatesX.Enqueue(12f);
         enemiesCoordinatesX.Enqueue(22f);
         enemiesCoordinatesX.Enqueue(30f);
+        enemiesCoordinatesX.Enqueue(-22f);
 
         enemiesCoordinatesY.Enqueue(-10f);
         enemiesCoordinatesY.Enqueue(-3f);
         enemiesCoordinatesY.Enqueue(-16f);
+        enemiesCoordinatesY.Enqueue(-24f);
 
 
         while (enemiesCoordinatesX.Count != 0) allEnemies.Add( Instantiate(Enemy_RANGE_RED, new Vector3(enemiesCoordinatesX.Dequeue(), enemiesCoordinatesY.Dequeue(), 0), Quaternion.identity));
@@ -32,7 +34,6 @@ public class InitEnemies : MonoBehaviour
 
         enemiesCoordinatesY.Enqueue(-15f);
         enemiesCoordinatesY.Enqueue(2f);
-
 
         while (enemiesCoordinatesX.Count != 0) allEnemies.Add(Instantiate(Enemy_RANGE_GREEN, new Vector3(enemiesCoordinatesX.Dequeue(), enemiesCoordinatesY.Dequeue(), 0), Quaternion.identity));
         

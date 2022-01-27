@@ -5,10 +5,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("Enemy animation:")]
     public Animator animator;
-    [Space]
-    [Header("Enemy attributes:")]
     public float radius; // also used as stopDistance
     public int speed;
     public bool range;
@@ -19,10 +16,7 @@ public class Enemy : MonoBehaviour
     private float timeBetweenShots;
     private bool alreadyInRange = false;
     private float floatTolerance = 0.25f;
-    
-    
-    [Space]
-    [Header("References:")]
+    private float DISTANCE_TO_STOP = 12f;
     private Transform target;
     public GameObject projectile;
 
@@ -37,7 +31,7 @@ public class Enemy : MonoBehaviour
     {
         var tmpDistance = Vector2.Distance(target.position, transform.position);
 
-        if (tmpDistance < radius || alreadyInRange || !range) {
+        if (tmpDistance < DISTANCE_TO_STOP &&  (tmpDistance < radius || alreadyInRange || !range)) {
 
             alreadyInRange = true;
 
@@ -70,9 +64,20 @@ public class Enemy : MonoBehaviour
             if (tmpDistance < radius) Animate();
 
         }
-      
+
+
+        
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("PlayerProjectile") && Vector2.Distance(collision.transform.position, transform.position) < 2f)
+        {
+            Destroy(collision);
+            Destroy(gameObject);
+        }
+
+    }
     private void Animate()
     {
         Vector3 posA = transform.position;

@@ -14,6 +14,7 @@ TagManager:
   - Fence
   - Tree
   - House
+  - PlayerProjectile
   layers:
   - Default
   - TransparentFX

@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
     private GameObject player;
     private Vector2 target;
     private bool rotating = true;
-    private float vectorExtend = 15.0f;
+    private float vectorExtend = 10.0f;
 
     
 
