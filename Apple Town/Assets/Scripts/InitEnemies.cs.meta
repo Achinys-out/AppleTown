@@ -3,7 +3,9 @@ guid: acb35216ef33f27478dd018a78b36ce0
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Enemy_RANGE_RED: {fileID: 7483043406965718683, guid: 38cc0050f686384469d803b81db497ef, type: 3}
+  - Enemy_RANGE_GREEN: {fileID: 7007699670022396271, guid: 033434cbc0a28044798a99a660554646, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

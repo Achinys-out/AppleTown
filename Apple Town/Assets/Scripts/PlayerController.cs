@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [Header("Character attributes:")]
     public Vector2 movement;
     public float speed = 7.0f;
-    private int health = 2;
+    private int health = 6;
     public float movementSpeed;
     private float lastDamagedTime;
     private float invincibilityLength = 0;
@@ -84,6 +84,8 @@ public class PlayerController : MonoBehaviour
             transform.position = initPosition;
             health = 6;
             healthStatus.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Health/" + health + "_HEALTH");
+            var gm = gameObject.GetComponent<InitEnemies>();
+            gm.resetEnemies();
 
         }
         

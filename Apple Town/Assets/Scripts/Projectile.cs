@@ -23,11 +23,9 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (collision.CompareTag("Player")) {
+        if (collision.CompareTag("Player") || collision.CompareTag("Fence") || collision.CompareTag("House") || collision.CompareTag("Tree")) {
             Destroy(gameObject);
         }
-
     }
 
     private void Update()
@@ -38,7 +36,7 @@ public class Projectile : MonoBehaviour
         if(rotating) transform.Rotate(0, 0, 360 * Time.deltaTime);
         if (transform.position.x == target.x && transform.position.y == target.y) {
             rotating = false;
-            Destroy(gameObject, 1f);
+            Destroy(gameObject, 0.7f);
         }
         
     }

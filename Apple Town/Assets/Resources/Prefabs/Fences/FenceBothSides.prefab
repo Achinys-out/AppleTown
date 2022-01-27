@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8885064659664973041}
   m_Layer: 0
   m_Name: FenceBothSides
-  m_TagString: Untagged
+  m_TagString: Fence
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: -0.43}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.51}
     oldSize: {x: 4.26, y: 1.08}
     newSize: {x: 4.26, y: 1.08}
     adaptiveTilingThreshold: 0.5

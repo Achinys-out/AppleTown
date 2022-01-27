@@ -11,6 +11,9 @@ TagManager:
   - Projectile
   - FullAppleHealth
   - HalfAppleHealth
+  - Fence
+  - Tree
+  - House
   layers:
   - Default
   - TransparentFX
