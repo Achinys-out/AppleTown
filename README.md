@@ -33,3 +33,4 @@ Poznámky:
 
 (Všetko spísané je predbežný koncept a môže sa zmeniť.)
 
+Additional sound effects from https://www.zapsplat.com
