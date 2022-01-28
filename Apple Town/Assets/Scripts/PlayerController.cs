@@ -55,6 +55,11 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GetComponent<MainMenu>().OpenMenu();
+        }
+
     }
 
     private void Attack(Vector2 movement) {

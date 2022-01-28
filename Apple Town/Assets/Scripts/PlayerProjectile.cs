@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerProjectile : MonoBehaviour
 {
+    private void Update()
+    {
+        transform.Rotate(0, 0, 360 * Time.deltaTime);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
